@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(51, 49, 49);
+        color: white;
+    }
+    #main{
+        height: 400px;
+        width: 350px;
+        border: 3px solid white;
+        
+    }
+    input{
+        height: 80px;
+        width: 100%;
+        text-align: right;
+        font-size: 10vh;
+        background-color: transparent;
+        color: white;
+        border-bottom: 3px solid white;
+    }
+    button{
+        height: 50px;
+        width: 70px;
+        border-radius: 15%;
+        box-shadow: 2px 2px 2px white;
+        font-size: 3.7vh;
+        font-weight: bold;
+        color: white;
+        background-color: transparent;
+    }
+    .btn{
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 3%;
+       
+    }
+
+</style>
+</head>
+<body>
+    <div id="main">
+        <div id="fst">
+            <input type="text" id="accept" placeholder="0">
+        </div>
+        <div class="btn">
+            <button class="op">AC</button>
+            <button class="op">DEL</button>
+            <button class="op">/</button>
+            <button class="op">%</button>
+        </div>
+        <div class="btn">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button class="op">+</button>
+        </div>
+        <div class="btn">
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button class="op">-</button>
+        </div>
+        <div class="btn">
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button class="op">*</button>
+        </div>
+        <div class="btn">
+            <button>00</button>
+            <button>0</button>
+            <button>.</button>
+            <button class="equal">=</button>
+        </div>
+    </div>     
+    
+
+<script>
+  let input = document.querySelector("#accept");
+  let btn = document.querySelectorAll("button");
+  let str = "";
+  let arr = Array.from(btn);
+  arr.forEach(btn => {
+    // btn.addEventListener("click", (e)=> {
+        // if(e.target.innerHTML == '='){
+        //     string = eval(string);
+        //     input.value = string;
+        // }
+        // else if(e.target.innerHTML == 'AC'){
+        //     string = "";
+        //     input.value = string;
+        // }
+        // else if(e.target.innerHTML == 'DEL'){
+        //     string = string.substring(0, string.length-1);
+        // }
+        // else{
+        //     string = string + e.target.innerHTML;
+        //     input.value = string;
+        // }
+
+        //or
+    btn.addEventListener("click", ()=> {
+        if(btn.innerHTML == '='){       // "" or '' no matter
+            str = eval(str);
+            input.value = str;
+        }
+        else if(btn.innerHTML == 'AC'){
+            str = "";
+            input.value = str;
+        }
+        else if(btn.innerHTML == 'DEL'){
+            str = str.substring(0, str.length-1);
+            input.value = str;
+        }
+        else{
+            str = str + btn.innerHTML;
+            input.value = str;
+        }
+    })
+  })
+
+    
+</script>
+</body>
+</html>
